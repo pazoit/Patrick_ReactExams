@@ -26,6 +26,9 @@ const Postsmanager = () => {
     if (selectedPost) {
       setTitle(selectedPost.title);
       setBody(selectedPost.body);
+    } else {
+      setTitle("");
+      setBody("");
     }
   }, [selectedPost]);
 
@@ -46,7 +49,9 @@ const Postsmanager = () => {
   };
 
   return (
-    <div className="max-w-3xl mx-auto p-6 bg-[#44afc3] border-black border">
+    <div className="flex flex-col">
+        <h1 className="text-3xl font-bold mb-6 text-[#44afc3]">Posts Manager</h1>
+        <div className="max-w-3xl mx-auto p-6 bg-[#44afc3] border-red-400 border flex flex-col justify-center">
       
       <div className="bg-[#44afc3] p-5 rounded shadow mb-6">
         <h2 className="text-xl font-bold mb-4">
@@ -69,7 +74,7 @@ const Postsmanager = () => {
 
         <button
           onClick={selectedPost ? handleUpdate : handleCreate}
-          className="bg-[#44afc3] text-white px-4 py-2 rounded mr-3"
+          className="bg-yellow-400 text-white px-4 py-2 rounded mr-3"
         >
           {selectedPost ? "Save Changes" : "Add Post"}
         </button>
@@ -117,6 +122,8 @@ const Postsmanager = () => {
           </div>
         ))}
     </div>
+    </div>
+    
   );
 };
 
